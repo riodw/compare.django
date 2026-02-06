@@ -25,3 +25,20 @@ uv sync
 ```
 python manage.py runserver
 ```
+
+## Setup Databse
+
+### Migrate
+```
+python manage.py migrate
+```
+
+### Create superuser
+```
+python manage.py createsuperuser
+```
+
+## Populate Dummy Data
+```
+python manage.py populate_dummy_data
+```
