@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: compare.django
+    plan: free
+    branch: master
+    runtime: python
+    region: ohio
+    repo: https://github.com/riodw/compare.django
+    buildCommand: './build.sh'
+    startCommand: 'python -m gunicorn compare.asgi:application -k uvicorn.workers.UvicornWorker'
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.14.3
+      - key: NODE_VERSION
+        value: 24.13.1
+      - key: SECRET_KEY
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: 4
