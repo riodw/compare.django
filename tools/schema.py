@@ -1,10 +1,14 @@
 import graphene
-from graphene_django import DjangoObjectType, DjangoListField
+from graphene_django import DjangoObjectType
 
-# from graphene_django.filter import DjangoFilterConnectionField
-from django_graphene_filters import AdvancedDjangoFilterConnectionField
+# from graphene_django.types import DjangoObjectType
+
+from graphene_django.filter import DjangoFilterConnectionField
+
+# from django_graphene_filters import AdvancedDjangoFilterConnectionField
 
 from . import models
+
 from . import filters
 
 
@@ -28,74 +32,147 @@ class CountableConnection(graphene.relay.Connection):
         return len(root.edges)
 
 
-class UUID(DjangoObjectType):
+"""
+Nodes
+"""
+
+
+class BrandNode(DjangoObjectType):
     class Meta:
-        model = models.UUID
-        fields = "__all__"
-        # fields = ["address"]
-        filter_fields = {
-            "address": ["exact"],
-        }
-        interfaces = (graphene.relay.Node,)
+        model = models.Brand
+        interfaces = (graphene.Node,)
         connection_class = CountableConnection
+        fields = "__all__"
+        filterset_class = filters.BrandFilter
+        # filter_fields = {
+        #     "id": ["exact", "icontains", "istartswith"],
+        # }
 
 
-class Address(DjangoObjectType):
+class CategoryNode(DjangoObjectType):
     class Meta:
-        model = models.Address
-        fields = "__all__"
-        filterset_class = filters.AddressFilter
-        interfaces = (graphene.relay.Node,)
+        model = models.Category
+        interfaces = (graphene.Node,)
         connection_class = CountableConnection
+        fields = "__all__"
+        filterset_class = filters.CategoryFilter
+        # filter_fields = {
+        #     "id": ["exact", "icontains", "istartswith"],
+        # }
 
 
-class House(DjangoObjectType):
+class MetricNode(DjangoObjectType):
     class Meta:
-        model = models.House
-        fields = "__all__"
-        filterset_class = filters.HouseFilter
-        # filter_fields = {"name": ["exact", "icontains", "istartswith"],}
-        interfaces = (graphene.relay.Node,)
+        model = models.Metric
+        interfaces = (graphene.Node,)
         connection_class = CountableConnection
+        fields = "__all__"
+        filterset_class = filters.MetricFilter
+        # filter_fields = {
+        #     "id": ["exact", "icontains", "istartswith"],
+        # }
 
 
-class Query(graphene.ObjectType):
-    # address = AdvancedDjangoFilterConnectionField(
-    #     Address,
-    #     filter_input_type_prefix="AddressFilterSetClass",
-    #     description="Advanced filter fields for Address model",
-    # )
-    houses = AdvancedDjangoFilterConnectionField(
-        House,
-        filter_input_type_prefix="HouseFilterSetClass",
-        description="Advanced filter fields for House model",
+class ContentCreatorNode(DjangoObjectType):
+    class Meta:
+        model = models.ContentCreator
+        interfaces = (graphene.Node,)
+        connection_class = CountableConnection
+        fields = "__all__"
+        filterset_class = filters.ContentCreatorFilter
+        # filter_fields = {
+        #     "id": ["exact", "icontains", "istartswith"],
+        # }
+
+
+class SourceNode(DjangoObjectType):
+    class Meta:
+        model = models.Source
+        interfaces = (graphene.Node,)
+        connection_class = CountableConnection
+        fields = "__all__"
+        filterset_class = filters.SourceFilter
+        # filter_fields = {
+        #     "id": ["exact", "icontains", "istartswith"],
+        # }
+
+
+class ToolNode(DjangoObjectType):
+    class Meta:
+        model = models.Tool
+        interfaces = (graphene.Node,)
+        connection_class = CountableConnection
+        fields = "__all__"
+        filterset_class = filters.ToolFilter
+        # filter_fields = {
+        #     "id": ["exact", "icontains", "istartswith"],
+        # }
+
+
+class ToolMetricNode(DjangoObjectType):
+    class Meta:
+        model = models.ToolMetric
+        interfaces = (graphene.Node,)
+        connection_class = CountableConnection
+        fields = "__all__"
+        filterset_class = filters.ToolMetricFilter
+        # filter_fields = {
+        #     "id": ["exact", "icontains", "istartswith"],
+        # }
+
+
+class WeightedAverageNode(DjangoObjectType):
+    class Meta:
+        model = models.WeightedAverage
+        interfaces = (graphene.Node,)
+        connection_class = CountableConnection
+        fields = "__all__"
+        filterset_class = filters.WeightedAverageFilter
+        # filter_fields = {
+        #     "id": ["exact", "icontains", "istartswith"],
+        # }
+
+
+class UUIDModelNode(DjangoObjectType):
+    class Meta:
+        model = models.UUIDModel
+        interfaces = (graphene.Node,)
+        connection_class = CountableConnection
+        fields = "__all__"
+        filterset_class = filters.UUIDModelFilter
+        # filter_fields = {
+        #     "id": ["exact", "icontains", "istartswith"],
+        # }
+
+
+class Query:
+    brand = graphene.Node.Field(BrandNode)
+    all_brands = DjangoFilterConnectionField(BrandNode)
+    #
+    category = graphene.Node.Field(CategoryNode)
+    all_categories = DjangoFilterConnectionField(CategoryNode)
+    #
+    metric = graphene.Node.Field(MetricNode)
+    all_metrics = DjangoFilterConnectionField(MetricNode)
+    #
+    content_creator = graphene.Node.Field(ContentCreatorNode)
+    all_content_creators = DjangoFilterConnectionField(ContentCreatorNode)
+    #
+    source = graphene.Node.Field(SourceNode)
+    all_sources = DjangoFilterConnectionField(SourceNode)
+    #
+    tool = graphene.Node.Field(ToolNode)
+    all_tools = DjangoFilterConnectionField(ToolNode)
+    #
+    tool_metric = graphene.Node.Field(ToolMetricNode)
+    all_tool_metrics = DjangoFilterConnectionField(ToolMetricNode)
+    #
+    weighted_average = graphene.Node.Field(WeightedAverageNode)
+    all_weighted_averages = DjangoFilterConnectionField(WeightedAverageNode)
+    #
+    uuid_model = graphene.Node.Field(UUIDModelNode)
+    # all_uuid_models = AdvancedDjangoFilterConnectionField(
+    all_uuid_models = DjangoFilterConnectionField(
+        UUIDModelNode,
+        # filter_input_type_prefix="UUIDModelFilterSetClass",
     )
-    # uuid = AdvancedDjangoFilterConnectionField(
-    #     UUID,
-    #     filter_input_type_prefix="UUIDFilterSetClass",
-    #     description="Advanced filter fields for UUID model",
-    # )
-    # houses = AdvancedDjangoFilterConnectionField(House)
-    # house = graphene.Field(House, id=graphene.Int())
-
-    # def resolve_house(root, info, id):
-    #     try:
-    #         return models.House.objects.get(id=id)
-    #     except models.House.DoesNotExist:
-    #         return None
-
-    # def resolve_houses(root, info):
-    #     if info.context.user.is_authenticated:
-    #         return models.House.objects.all()
-    #     else:
-    #         return models.House.objects.none()
-
-
-# class Mutation(graphene.ObjectType):
-#     pass
-
-
-schema = graphene.Schema(
-    query=Query,
-    #  mutation=Mutation,
-)
