@@ -10,4 +10,6 @@ dependencies = [
     "django-graphene-filters",
     "factory-boy",
     "graphene-django",
+    "gunicorn",
+    "uvicorn",
 ]
