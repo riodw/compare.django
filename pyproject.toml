@@ -12,4 +12,5 @@ dependencies = [
     "graphene-django",
     "gunicorn",
     "uvicorn",
+    "whitenoise",
 ]
