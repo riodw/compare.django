@@ -7,7 +7,7 @@ services:
     region: ohio
     repo: https://github.com/riodw/compare.django
     buildCommand: './build.sh'
-    startCommand: 'python -m gunicorn compare.asgi:application -k uvicorn.workers.UvicornWorker'
+    startCommand: 'python -m gunicorn compare.asgi:application -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:$PORT'
     envVars:
       - key: PYTHON_VERSION
         value: 3.14.3
