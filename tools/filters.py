@@ -23,6 +23,7 @@ class CategoryFilter(filters.AdvancedFilterSet):
 
 
 class MetricFilter(filters.AdvancedFilterSet):
+    # category = filters.RelatedFilter(
     class Meta:
         model = models.Metric
         fields = {
@@ -43,6 +44,8 @@ class ContentCreatorFilter(filters.AdvancedFilterSet):
 
 
 class SourceFilter(filters.AdvancedFilterSet):
+    # category = filters.RelatedFilter(
+    # content_creator = filters.RelatedFilter(
     class Meta:
         model = models.Source
         fields = {
@@ -51,6 +54,17 @@ class SourceFilter(filters.AdvancedFilterSet):
 
 
 class ToolFilter(filters.AdvancedFilterSet):
+    brand = filters.RelatedFilter(
+        BrandFilter,
+        field_name="brand",
+        queryset=models.Brand.objects.all()
+    )
+    category = filters.RelatedFilter(
+        CategoryFilter,
+        field_name="category",
+        queryset=models.Category.objects.all()
+    )
+
     class Meta:
         model = models.Tool
         fields = {
@@ -72,6 +86,9 @@ class ToolMetricFilter(filters.AdvancedFilterSet):
 
 
 class WeightedAverageFilter(filters.AdvancedFilterSet):
+    # tool = filters.RelatedFilter(
+    # metric = filters.RelatedFilter(
+    # source = filters.RelatedFilter(
     class Meta:
         model = models.WeightedAverage
         fields = {

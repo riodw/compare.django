@@ -3,9 +3,9 @@ from graphene_django import DjangoObjectType
 
 # from graphene_django.types import DjangoObjectType
 
-from graphene_django.filter import DjangoFilterConnectionField
+# from graphene_django.filter import DjangoFilterConnectionField
 
-# from django_graphene_filters import AdvancedDjangoFilterConnectionField
+from django_graphene_filters import AdvancedDjangoFilterConnectionField
 
 from . import models
 
@@ -147,32 +147,32 @@ class UUIDModelNode(DjangoObjectType):
 
 class Query:
     brand = graphene.Node.Field(BrandNode)
-    all_brands = DjangoFilterConnectionField(BrandNode)
+    brands = AdvancedDjangoFilterConnectionField(BrandNode)
     #
     category = graphene.Node.Field(CategoryNode)
-    all_categories = DjangoFilterConnectionField(CategoryNode)
+    categories = AdvancedDjangoFilterConnectionField(CategoryNode)
     #
     metric = graphene.Node.Field(MetricNode)
-    all_metrics = DjangoFilterConnectionField(MetricNode)
+    metrics = AdvancedDjangoFilterConnectionField(MetricNode)
     #
     content_creator = graphene.Node.Field(ContentCreatorNode)
-    all_content_creators = DjangoFilterConnectionField(ContentCreatorNode)
+    content_creators = AdvancedDjangoFilterConnectionField(ContentCreatorNode)
     #
     source = graphene.Node.Field(SourceNode)
-    all_sources = DjangoFilterConnectionField(SourceNode)
+    sources = AdvancedDjangoFilterConnectionField(SourceNode)
     #
     tool = graphene.Node.Field(ToolNode)
-    all_tools = DjangoFilterConnectionField(ToolNode)
+    tools = AdvancedDjangoFilterConnectionField(ToolNode)
     #
     tool_metric = graphene.Node.Field(ToolMetricNode)
-    all_tool_metrics = DjangoFilterConnectionField(ToolMetricNode)
+    tool_metrics = AdvancedDjangoFilterConnectionField(ToolMetricNode)
     #
     weighted_average = graphene.Node.Field(WeightedAverageNode)
-    all_weighted_averages = DjangoFilterConnectionField(WeightedAverageNode)
+    weighted_averages = AdvancedDjangoFilterConnectionField(WeightedAverageNode)
     #
     uuid_model = graphene.Node.Field(UUIDModelNode)
     # all_uuid_models = AdvancedDjangoFilterConnectionField(
-    all_uuid_models = DjangoFilterConnectionField(
+    uuid_models = AdvancedDjangoFilterConnectionField(
         UUIDModelNode,
         # filter_input_type_prefix="UUIDModelFilterSetClass",
     )
