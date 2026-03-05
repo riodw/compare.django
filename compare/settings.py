@@ -47,6 +47,11 @@ if DEBUG:
 CORS_ALLOWED_ORIGIN_REGEXES = [
     r"^http://localhost:\d+$",
     r"^http://127\.0\.0\.1:\d+$",
+    r"^http://onrender\.com$",
+    r"^https://onrender\.com$",
+    r"^http://compare-django\.onrender\.com$",
+    r"^https://compare-django\.onrender\.com$",
+    r"^https://compare-django\.com$",
 ]
 
 
