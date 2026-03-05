@@ -8,6 +8,7 @@ dependencies = [
     "black>=26.1.0",
     "brotli",
     "django>=6.0.2",
+    "django-cors-headers>=4.9.0",
     "django-graphene-filters",
     "factory-boy",
     "graphene-django",
