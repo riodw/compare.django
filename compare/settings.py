@@ -51,7 +51,8 @@ CORS_ALLOWED_ORIGIN_REGEXES = [
     r"^https://onrender\.com$",
     r"^http://compare-django\.onrender\.com$",
     r"^https://compare-django\.onrender\.com$",
-    r"^https://compare-django\.com$",
+    r"^http://compare-vue\.onrender\.com$",
+    r"^https://compare-vue\.onrender\.com$",
 ]
 
 
