@@ -23,7 +23,12 @@ class CategoryFilter(filters.AdvancedFilterSet):
 
 
 class MetricFilter(filters.AdvancedFilterSet):
-    # category = filters.RelatedFilter(
+    category = filters.RelatedFilter(
+        CategoryFilter,
+        field_name="category",
+        queryset=models.Category.objects.all(),
+    )
+
     class Meta:
         model = models.Metric
         fields = {
@@ -44,8 +49,17 @@ class ContentCreatorFilter(filters.AdvancedFilterSet):
 
 
 class SourceFilter(filters.AdvancedFilterSet):
-    # category = filters.RelatedFilter(
-    # content_creator = filters.RelatedFilter(
+    category = filters.RelatedFilter(
+        CategoryFilter,
+        field_name="category",
+        queryset=models.Category.objects.all(),
+    )
+    content_creator = filters.RelatedFilter(
+        ContentCreatorFilter,
+        field_name="content_creator",
+        queryset=models.ContentCreator.objects.all(),
+    )
+
     class Meta:
         model = models.Source
         fields = {
@@ -57,12 +71,12 @@ class ToolFilter(filters.AdvancedFilterSet):
     brand = filters.RelatedFilter(
         BrandFilter,
         field_name="brand",
-        queryset=models.Brand.objects.all()
+        queryset=models.Brand.objects.all(),
     )
     category = filters.RelatedFilter(
         CategoryFilter,
         field_name="category",
-        queryset=models.Category.objects.all()
+        queryset=models.Category.objects.all(),
     )
 
     class Meta:
@@ -86,9 +100,17 @@ class ToolMetricFilter(filters.AdvancedFilterSet):
 
 
 class WeightedAverageFilter(filters.AdvancedFilterSet):
-    # tool = filters.RelatedFilter(
-    # metric = filters.RelatedFilter(
-    # source = filters.RelatedFilter(
+    tool = filters.RelatedFilter(
+        ToolFilter,
+        field_name="tool",
+        queryset=models.Tool.objects.all(),
+    )
+    source = filters.RelatedFilter(
+        SourceFilter,
+        field_name="source",
+        queryset=models.Source.objects.all(),
+    )
+
     class Meta:
         model = models.WeightedAverage
         fields = {
