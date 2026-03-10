@@ -79,3 +79,11 @@ class WeightedAverageOrder(orders.AdvancedOrderSet):
         fields = [
             "score",
         ]
+
+
+class UUIDModelOrder(orders.AdvancedOrderSet):
+    class Meta:
+        model = models.UUIDModel
+        fields = [
+            "id",
+        ]
