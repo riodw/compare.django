@@ -10,6 +10,7 @@ from django_graphene_filters import AdvancedDjangoFilterConnectionField
 from . import models
 
 from . import filters
+from . import orders
 
 
 class CountableConnection(graphene.relay.Connection):
@@ -45,8 +46,8 @@ class BrandNode(DjangoObjectType):
         fields = "__all__"
         filterset_class = filters.BrandFilter
         # filter_fields = {
-        #     "id": ["exact", "icontains", "istartswith"],
-        # }
+        #     "id": ["exact", "icontains", "istartswith"], }
+        orderset_class = orders.BrandOrder
 
 
 class CategoryNode(DjangoObjectType):
@@ -56,9 +57,7 @@ class CategoryNode(DjangoObjectType):
         connection_class = CountableConnection
         fields = "__all__"
         filterset_class = filters.CategoryFilter
-        # filter_fields = {
-        #     "id": ["exact", "icontains", "istartswith"],
-        # }
+        orderset_class = orders.CategoryOrder
 
 
 class MetricNode(DjangoObjectType):
@@ -68,9 +67,7 @@ class MetricNode(DjangoObjectType):
         connection_class = CountableConnection
         fields = "__all__"
         filterset_class = filters.MetricFilter
-        # filter_fields = {
-        #     "id": ["exact", "icontains", "istartswith"],
-        # }
+        orderset_class = orders.MetricOrder
 
 
 class ContentCreatorNode(DjangoObjectType):
@@ -80,9 +77,7 @@ class ContentCreatorNode(DjangoObjectType):
         connection_class = CountableConnection
         fields = "__all__"
         filterset_class = filters.ContentCreatorFilter
-        # filter_fields = {
-        #     "id": ["exact", "icontains", "istartswith"],
-        # }
+        orderset_class = orders.ContentCreatorOrder
 
 
 class SourceNode(DjangoObjectType):
@@ -92,9 +87,7 @@ class SourceNode(DjangoObjectType):
         connection_class = CountableConnection
         fields = "__all__"
         filterset_class = filters.SourceFilter
-        # filter_fields = {
-        #     "id": ["exact", "icontains", "istartswith"],
-        # }
+        orderset_class = orders.SourceOrder
 
 
 class ToolNode(DjangoObjectType):
@@ -104,9 +97,7 @@ class ToolNode(DjangoObjectType):
         connection_class = CountableConnection
         fields = "__all__"
         filterset_class = filters.ToolFilter
-        # filter_fields = {
-        #     "id": ["exact", "icontains", "istartswith"],
-        # }
+        orderset_class = orders.ToolOrder
 
 
 class ToolMetricNode(DjangoObjectType):
@@ -116,9 +107,7 @@ class ToolMetricNode(DjangoObjectType):
         connection_class = CountableConnection
         fields = "__all__"
         filterset_class = filters.ToolMetricFilter
-        # filter_fields = {
-        #     "id": ["exact", "icontains", "istartswith"],
-        # }
+        orderset_class = orders.ToolMetricOrder
 
 
 class WeightedAverageNode(DjangoObjectType):
@@ -128,9 +117,7 @@ class WeightedAverageNode(DjangoObjectType):
         connection_class = CountableConnection
         fields = "__all__"
         filterset_class = filters.WeightedAverageFilter
-        # filter_fields = {
-        #     "id": ["exact", "icontains", "istartswith"],
-        # }
+        orderset_class = orders.WeightedAverageOrder
 
 
 class UUIDModelNode(DjangoObjectType):
@@ -140,9 +127,7 @@ class UUIDModelNode(DjangoObjectType):
         connection_class = CountableConnection
         fields = "__all__"
         filterset_class = filters.UUIDModelFilter
-        # filter_fields = {
-        #     "id": ["exact", "icontains", "istartswith"],
-        # }
+        orderset_class = orders.UUIDModelOrder
 
 
 class Query:
