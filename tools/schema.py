@@ -5,7 +5,7 @@ from graphene_django import DjangoObjectType
 
 # from graphene_django.filter import DjangoFilterConnectionField
 
-from django_graphene_filters import AdvancedDjangoFilterConnectionField
+from django_graphene_filters import AdvancedDjangoFilterConnectionField, AdvancedDjangoObjectType
 
 from . import models
 
@@ -38,7 +38,7 @@ Nodes
 """
 
 
-class BrandNode(DjangoObjectType):
+class BrandNode(AdvancedDjangoObjectType):
     class Meta:
         model = models.Brand
         interfaces = (graphene.Node,)
@@ -50,7 +50,7 @@ class BrandNode(DjangoObjectType):
         orderset_class = orders.BrandOrder
 
 
-class CategoryNode(DjangoObjectType):
+class CategoryNode(AdvancedDjangoObjectType):
     class Meta:
         model = models.Category
         interfaces = (graphene.Node,)
@@ -60,7 +60,7 @@ class CategoryNode(DjangoObjectType):
         orderset_class = orders.CategoryOrder
 
 
-class MetricNode(DjangoObjectType):
+class MetricNode(AdvancedDjangoObjectType):
     class Meta:
         model = models.Metric
         interfaces = (graphene.Node,)
@@ -70,7 +70,7 @@ class MetricNode(DjangoObjectType):
         orderset_class = orders.MetricOrder
 
 
-class ContentCreatorNode(DjangoObjectType):
+class ContentCreatorNode(AdvancedDjangoObjectType):
     class Meta:
         model = models.ContentCreator
         interfaces = (graphene.Node,)
@@ -80,7 +80,7 @@ class ContentCreatorNode(DjangoObjectType):
         orderset_class = orders.ContentCreatorOrder
 
 
-class SourceNode(DjangoObjectType):
+class SourceNode(AdvancedDjangoObjectType):
     class Meta:
         model = models.Source
         interfaces = (graphene.Node,)
@@ -90,7 +90,7 @@ class SourceNode(DjangoObjectType):
         orderset_class = orders.SourceOrder
 
 
-class ToolNode(DjangoObjectType):
+class ToolNode(AdvancedDjangoObjectType):
     class Meta:
         model = models.Tool
         interfaces = (graphene.Node,)
@@ -100,7 +100,7 @@ class ToolNode(DjangoObjectType):
         orderset_class = orders.ToolOrder
 
 
-class ToolMetricNode(DjangoObjectType):
+class ToolMetricNode(AdvancedDjangoObjectType):
     class Meta:
         model = models.ToolMetric
         interfaces = (graphene.Node,)
@@ -110,7 +110,7 @@ class ToolMetricNode(DjangoObjectType):
         orderset_class = orders.ToolMetricOrder
 
 
-class WeightedAverageNode(DjangoObjectType):
+class WeightedAverageNode(AdvancedDjangoObjectType):
     class Meta:
         model = models.WeightedAverage
         interfaces = (graphene.Node,)
@@ -120,7 +120,7 @@ class WeightedAverageNode(DjangoObjectType):
         orderset_class = orders.WeightedAverageOrder
 
 
-class UUIDModelNode(DjangoObjectType):
+class UUIDModelNode(AdvancedDjangoObjectType):
     class Meta:
         model = models.UUIDModel
         interfaces = (graphene.Node,)
