@@ -92,6 +92,22 @@ class ToolFilter(filters.AdvancedFilterSet):
 
 
 class ToolMetricFilter(filters.AdvancedFilterSet):
+    tool = filters.RelatedFilter(
+        ToolFilter,
+        field_name="tool",
+        queryset=models.Tool.objects.all(),
+    )
+    metric = filters.RelatedFilter(
+        MetricFilter,
+        field_name="metric",
+        queryset=models.Metric.objects.all(),
+    )
+    source = filters.RelatedFilter(
+        SourceFilter,
+        field_name="source",
+        queryset=models.Source.objects.all(),
+    )
+
     class Meta:
         model = models.ToolMetric
         fields = {
