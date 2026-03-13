@@ -25,6 +25,11 @@ class CategoryOrder(orders.AdvancedOrderSet):
 
 
 class MetricOrder(orders.AdvancedOrderSet):
+    category = orders.RelatedOrder(
+        CategoryOrder,
+        field_name="category",
+    )
+
     class Meta:
         model = models.Metric
         fields = [
@@ -45,6 +50,15 @@ class ContentCreatorOrder(orders.AdvancedOrderSet):
 
 
 class SourceOrder(orders.AdvancedOrderSet):
+    category = orders.RelatedOrder(
+        CategoryOrder,
+        field_name="category",
+    )
+    content_creator = orders.RelatedOrder(
+        ContentCreatorOrder,
+        field_name="content_creator",
+    )
+
     class Meta:
         model = models.Source
         fields = [
@@ -53,6 +67,15 @@ class SourceOrder(orders.AdvancedOrderSet):
 
 
 class ToolOrder(orders.AdvancedOrderSet):
+    brand = orders.RelatedOrder(
+        BrandOrder,
+        field_name="brand",
+    )
+    category = orders.RelatedOrder(
+        CategoryOrder,
+        field_name="category",
+    )
+
     class Meta:
         model = models.Tool
         fields = [
@@ -66,6 +89,19 @@ class ToolOrder(orders.AdvancedOrderSet):
 
 
 class ToolMetricOrder(orders.AdvancedOrderSet):
+    tool = orders.RelatedOrder(
+        ToolOrder,
+        field_name="tool",
+    )
+    metric = orders.RelatedOrder(
+        MetricOrder,
+        field_name="metric",
+    )
+    source = orders.RelatedOrder(
+        SourceOrder,
+        field_name="source",
+    )
+
     class Meta:
         model = models.ToolMetric
         fields = [
@@ -74,6 +110,15 @@ class ToolMetricOrder(orders.AdvancedOrderSet):
 
 
 class WeightedAverageOrder(orders.AdvancedOrderSet):
+    tool = orders.RelatedOrder(
+        ToolOrder,
+        field_name="tool",
+    )
+    source = orders.RelatedOrder(
+        SourceOrder,
+        field_name="source",
+    )
+
     class Meta:
         model = models.WeightedAverage
         fields = [
