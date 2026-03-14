@@ -26,7 +26,7 @@ class MetricFilter(filters.AdvancedFilterSet):
     category = filters.RelatedFilter(
         CategoryFilter,
         field_name="category",
-        queryset=models.Category.objects.all(),
+        # queryset=models.Category.objects.all(),
     )
 
     class Meta:
@@ -52,12 +52,12 @@ class SourceFilter(filters.AdvancedFilterSet):
     category = filters.RelatedFilter(
         CategoryFilter,
         field_name="category",
-        queryset=models.Category.objects.all(),
+        # queryset=models.Category.objects.all(),
     )
     content_creator = filters.RelatedFilter(
         ContentCreatorFilter,
         field_name="content_creator",
-        queryset=models.ContentCreator.objects.all(),
+        # queryset=models.ContentCreator.objects.all(),
     )
 
     class Meta:
@@ -71,12 +71,18 @@ class ToolFilter(filters.AdvancedFilterSet):
     brand = filters.RelatedFilter(
         BrandFilter,
         field_name="brand",
-        queryset=models.Brand.objects.all(),
+        # queryset=models.Brand.objects.all(),
     )
     category = filters.RelatedFilter(
         CategoryFilter,
         field_name="category",
-        queryset=models.Category.objects.all(),
+        # queryset=models.Category.objects.all(),
+    )
+    # Relationships
+    tool_metrics = filters.RelatedFilter(
+        "ToolMetricFilter",
+        field_name="tool_metrics",
+        queryset=models.ToolMetric.objects.all(),
     )
 
     class Meta:
@@ -95,17 +101,17 @@ class ToolMetricFilter(filters.AdvancedFilterSet):
     tool = filters.RelatedFilter(
         ToolFilter,
         field_name="tool",
-        queryset=models.Tool.objects.all(),
+        # queryset=models.Tool.objects.all(),
     )
     metric = filters.RelatedFilter(
         MetricFilter,
         field_name="metric",
-        queryset=models.Metric.objects.all(),
+        # queryset=models.Metric.objects.all(),
     )
     source = filters.RelatedFilter(
         SourceFilter,
         field_name="source",
-        queryset=models.Source.objects.all(),
+        # queryset=models.Source.objects.all(),
     )
 
     class Meta:
@@ -119,12 +125,12 @@ class WeightedAverageFilter(filters.AdvancedFilterSet):
     tool = filters.RelatedFilter(
         ToolFilter,
         field_name="tool",
-        queryset=models.Tool.objects.all(),
+        # queryset=models.Tool.objects.all(),
     )
     source = filters.RelatedFilter(
         SourceFilter,
         field_name="source",
-        queryset=models.Source.objects.all(),
+        # queryset=models.Source.objects.all(),
     )
 
     class Meta:

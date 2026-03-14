@@ -45,9 +45,12 @@ class BrandNode(AdvancedDjangoObjectType):
         connection_class = CountableConnection
         fields = "__all__"
         filterset_class = filters.BrandFilter
-        # filter_fields = {
-        #     "id": ["exact", "icontains", "istartswith"], }
         orderset_class = orders.BrandOrder
+        search_fields = (
+            "name",
+            "link",
+            "year_founded",
+        )
 
 
 class CategoryNode(AdvancedDjangoObjectType):
@@ -58,6 +61,10 @@ class CategoryNode(AdvancedDjangoObjectType):
         fields = "__all__"
         filterset_class = filters.CategoryFilter
         orderset_class = orders.CategoryOrder
+        search_fields = (
+            "name",
+            "description",
+        )
 
 
 class MetricNode(AdvancedDjangoObjectType):
@@ -68,6 +75,12 @@ class MetricNode(AdvancedDjangoObjectType):
         fields = "__all__"
         filterset_class = filters.MetricFilter
         orderset_class = orders.MetricOrder
+        search_fields = (
+            "name",
+            "description",
+            "unit",
+            "weighting",
+        )
 
 
 class ContentCreatorNode(AdvancedDjangoObjectType):
@@ -78,6 +91,10 @@ class ContentCreatorNode(AdvancedDjangoObjectType):
         fields = "__all__"
         filterset_class = filters.ContentCreatorFilter
         orderset_class = orders.ContentCreatorOrder
+        search_fields = (
+            "name",
+            "link",
+        )
 
 
 class SourceNode(AdvancedDjangoObjectType):
@@ -88,6 +105,9 @@ class SourceNode(AdvancedDjangoObjectType):
         fields = "__all__"
         filterset_class = filters.SourceFilter
         orderset_class = orders.SourceOrder
+        search_fields = (
+            "link",
+        )
 
 
 class ToolNode(AdvancedDjangoObjectType):
@@ -98,6 +118,15 @@ class ToolNode(AdvancedDjangoObjectType):
         fields = "__all__"
         filterset_class = filters.ToolFilter
         orderset_class = orders.ToolOrder
+        search_fields = (
+            "name",
+            "model_number",
+            "weight",
+            "price",
+            # FK's
+            "brand__name",
+            "category__name",
+        )
 
 
 class ToolMetricNode(AdvancedDjangoObjectType):
@@ -108,6 +137,9 @@ class ToolMetricNode(AdvancedDjangoObjectType):
         fields = "__all__"
         filterset_class = filters.ToolMetricFilter
         orderset_class = orders.ToolMetricOrder
+        search_fields = (
+            "value",
+        )
 
 
 class WeightedAverageNode(AdvancedDjangoObjectType):
@@ -118,6 +150,9 @@ class WeightedAverageNode(AdvancedDjangoObjectType):
         fields = "__all__"
         filterset_class = filters.WeightedAverageFilter
         orderset_class = orders.WeightedAverageOrder
+        search_fields = (
+            "score",
+        )
 
 
 class UUIDModelNode(AdvancedDjangoObjectType):
