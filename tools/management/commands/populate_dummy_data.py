@@ -42,7 +42,14 @@ class MetricFactory(DjangoModelFactory):
     name = factory.Faker("word")
     description = factory.Faker("sentence")
     unit = factory.Faker("word")
-    weighting = factory.Faker("pydecimal", left_digits=0, right_digits=2, positive=True, min_value=0.01, max_value=0.5)
+    weighting = factory.Faker(
+        "pydecimal",
+        left_digits=0,
+        right_digits=2,
+        positive=True,
+        min_value=0.01,
+        max_value=0.5,
+    )
     category = factory.SubFactory(CategoryFactory)
 
 
@@ -74,7 +81,9 @@ class ToolFactory(DjangoModelFactory):
     description = factory.Faker("sentence")
     weight = factory.Faker("pydecimal", left_digits=2, right_digits=2, positive=True)
     price = factory.Faker("pydecimal", left_digits=3, right_digits=2, positive=True)
-    noise_level = factory.Faker("pydecimal", left_digits=2, right_digits=2, positive=True)
+    noise_level = factory.Faker(
+        "pydecimal", left_digits=2, right_digits=2, positive=True
+    )
     brand = factory.SubFactory(BrandFactory)
     category = factory.SubFactory(CategoryFactory)
 
@@ -118,22 +127,31 @@ class Command(BaseCommand):
         # Cordless Circular Saw
         MetricFactory(name="Blade Speed (RPM)", category=circular_saw, unit="RPM")
         MetricFactory(name="Blade Stop Speed", category=circular_saw, unit="Seconds")
-        MetricFactory(name="Average Cut Speed - @ 5lbs of pressure", category=circular_saw, unit="Inches/Second")
-        MetricFactory(name="Stop-to-Start-to-Stop time", category=circular_saw, unit="Seconds")
+        MetricFactory(
+            name="Average Cut Speed - @ 5lbs of pressure",
+            category=circular_saw,
+            unit="Inches/Second",
+        )
+        MetricFactory(
+            name="Stop-to-Start-to-Stop time", category=circular_saw, unit="Seconds"
+        )
 
         # Cordless Drill
         MetricFactory(name="Highest (No Load) RPM", category=drill, unit="RPM")
         MetricFactory(name="Maximum Working Torque (lbs)", category=drill, unit="lbs")
-        MetricFactory(name="Maximum depth hole drilled in concrete", category=drill, unit="Inches")
+        MetricFactory(
+            name="Maximum depth hole drilled in concrete", category=drill, unit="Inches"
+        )
         MetricFactory(name="Maximum clutch Torque (lbs)", category=drill, unit="lbs")
-        MetricFactory(name="Average Driving Speed (5in Lag Bolts)", category=drill, unit="Seconds")
-        
+        MetricFactory(
+            name="Average Driving Speed (5in Lag Bolts)", category=drill, unit="Seconds"
+        )
+
         self.stdout.write("Created Metrics")
 
         # 4. Create ContentCreator
         project_farm = ContentCreatorFactory(
-            name="ProjectFarm",
-            link="https://www.youtube.com/@ProjectFarm"
+            name="ProjectFarm", link="https://www.youtube.com/@ProjectFarm"
         )
         self.stdout.write(f"Created ContentCreator: {project_farm}")
 
@@ -141,17 +159,17 @@ class Command(BaseCommand):
         leaf_blower_source = SourceFactory(
             category=leaf_blower,
             content_creator=project_farm,
-            link="https://www.youtube.com/watch?v=sqKYiMNvvUg"
+            link="https://www.youtube.com/watch?v=sqKYiMNvvUg",
         )
         circular_saw_source = SourceFactory(
             category=circular_saw,
             content_creator=project_farm,
-            link="https://www.youtube.com/watch?v=7U0bG1exavw"
+            link="https://www.youtube.com/watch?v=7U0bG1exavw",
         )
         drill_source = SourceFactory(
             category=drill,
             content_creator=project_farm,
-            link="https://www.youtube.com/watch?v=WVPev_OBq5I"
+            link="https://www.youtube.com/watch?v=WVPev_OBq5I",
         )
         self.stdout.write("Created Sources")
 
@@ -166,13 +184,13 @@ class Command(BaseCommand):
         for category, source in category_map.items():
             metrics = Metric.objects.filter(category=category)
             for brand in brands:
-                 # Create Tool
+                # Create Tool
                 tool = ToolFactory(
                     brand=brand,
                     category=category,
                     # Random fields handled by Factory
                 )
-                
+
                 # Create ToolMetrics for each metric
                 for metric in metrics:
                     ToolMetricFactory(
@@ -181,5 +199,5 @@ class Command(BaseCommand):
                         source=source,
                         # Value random by Factory
                     )
-        
+
         self.stdout.write(self.style.SUCCESS("Successfully populated dummy data."))

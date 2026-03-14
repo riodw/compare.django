@@ -5,7 +5,10 @@ from graphene_django import DjangoObjectType
 
 # from graphene_django.filter import DjangoFilterConnectionField
 
-from django_graphene_filters import AdvancedDjangoFilterConnectionField, AdvancedDjangoObjectType
+from django_graphene_filters import (
+    AdvancedDjangoFilterConnectionField,
+    AdvancedDjangoObjectType,
+)
 
 from . import models
 
@@ -105,9 +108,7 @@ class SourceNode(AdvancedDjangoObjectType):
         fields = "__all__"
         filterset_class = filters.SourceFilter
         orderset_class = orders.SourceOrder
-        search_fields = (
-            "link",
-        )
+        search_fields = ("link",)
 
 
 class ToolNode(AdvancedDjangoObjectType):
@@ -137,9 +138,7 @@ class ToolMetricNode(AdvancedDjangoObjectType):
         fields = "__all__"
         filterset_class = filters.ToolMetricFilter
         orderset_class = orders.ToolMetricOrder
-        search_fields = (
-            "value",
-        )
+        search_fields = ("value",)
 
 
 class WeightedAverageNode(AdvancedDjangoObjectType):
@@ -150,9 +149,7 @@ class WeightedAverageNode(AdvancedDjangoObjectType):
         fields = "__all__"
         filterset_class = filters.WeightedAverageFilter
         orderset_class = orders.WeightedAverageOrder
-        search_fields = (
-            "score",
-        )
+        search_fields = ("score",)
 
 
 class UUIDModelNode(AdvancedDjangoObjectType):
