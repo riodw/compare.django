@@ -1,0 +1,171 @@
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[4798]: [2026-03-17 21:06:30 +0000] [4798] [CRITICAL] WORKER TIMEOUT (pid:6363)
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]: [2026-03-17 21:06:30 +0000] [6363] [ERROR] Error handling request /graphql/
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]: Traceback (most recent call last):
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/gunicorn/workers/sync.py", line 142, in handle
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     self.handle_request(listener, req, client, addr)
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/gunicorn/workers/sync.py", line 185, in handle_request
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     respiter = self.wsgi(environ, resp.start_response)
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/django/core/handlers/wsgi.py", line 124, in __call__
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     response = self.get_response(request)
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 141, in get_response
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     response = self._middleware_chain(request)
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     response = get_response(request)
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:                ^^^^^^^^^^^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/corsheaders/middleware.py", line 53, in __call__
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     result = self.get_response(request)
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     response = get_response(request)
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:                ^^^^^^^^^^^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 309, in __call__
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     response = response or self.get_response(request)
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:                            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     response = get_response(request)
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:                ^^^^^^^^^^^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/whitenoise/middleware.py", line 123, in __call__
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     return self.get_response(request)
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     response = get_response(request)
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:                ^^^^^^^^^^^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 309, in __call__
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     response = response or self.get_response(request)
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:                            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     response = get_response(request)
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:                ^^^^^^^^^^^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 309, in __call__
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     response = response or self.get_response(request)
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:                            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     response = get_response(request)
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:                ^^^^^^^^^^^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 309, in __call__
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     response = response or self.get_response(request)
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:                            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     response = get_response(request)
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:                ^^^^^^^^^^^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 309, in __call__
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     response = response or self.get_response(request)
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:                            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     response = get_response(request)
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:                ^^^^^^^^^^^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 309, in __call__
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     response = response or self.get_response(request)
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:                            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     response = get_response(request)
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:                ^^^^^^^^^^^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 309, in __call__
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     response = response or self.get_response(request)
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:                            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     response = get_response(request)
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:                ^^^^^^^^^^^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 198, in _get_response
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     return view_func(request, *args, **kwargs)
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/django/views/generic/base.py", line 99, in view
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     self = cls(**initkwargs)
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:            ^^^^^^^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/graphene_django/views.py", line 114, in __init__
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     schema = graphene_settings.SCHEMA
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:              ^^^^^^^^^^^^^^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/graphene_django/settings.py", line 127, in __getattr__
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     val = perform_import(val, attr)
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:           ^^^^^^^^^^^^^^^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/graphene_django/settings.py", line 66, in perform_import
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     return import_from_string(val, setting_name)
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/graphene_django/settings.py", line 80, in import_from_string
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     module = importlib.import_module(module_path)
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     return _bootstrap._gcd_import(name[level:], package, level)
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/compare/schema.py", line 13, in <module>
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     schema = graphene.Schema(
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:              ^^^^^^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/graphene/types/schema.py", line 440, in __init__
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     self.graphql_schema = GraphQLSchema(
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:                           ^^^^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/graphql/type/schema.py", line 225, in __init__
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     collect_referenced_types(query)
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/graphql/type/schema.py", line 436, in collect_referenced_types
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     for field in named_type.fields.values():
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:                  ^^^^^^^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/usr/lib/python3.12/functools.py", line 995, in __get__
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     val = self.func(instance)
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:           ^^^^^^^^^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/graphql/type/definition.py", line 834, in fields
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     fields = resolve_thunk(self._fields)
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/graphql/type/definition.py", line 318, in resolve_thunk
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     return thunk() if callable(thunk) else thunk
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:            ^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/graphene/types/schema.py", line 323, in create_fields_for_type
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     for arg_name, arg in field.args.items():
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:                          ^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/django_graphene_filters/connection_field.py", line 137, in args
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     args = super().args.copy()
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:            ^^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/graphene_django/filter/fields.py", line 51, in args
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     return to_arguments(self._base_args or OrderedDict(), self.filtering_args)
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:                                                           ^^^^^^^^^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/django_graphene_filters/connection_field.py", line 198, in filtering_args
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     ).arguments
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:       ^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/django_graphene_filters/filter_arguments_factory.py", line 75, in arguments
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     self.create_filter_input_type(
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/django_graphene_filters/filter_arguments_factory.py", line 97, in create_filter_input_type
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     root.name: self.create_filter_input_subfield(
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/django_graphene_filters/filter_arguments_factory.py", line 154, in create_filter_input_subfield
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     fields[child.name] = self.create_filter_input_subfield(
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/django_graphene_filters/filter_arguments_factory.py", line 154, in create_filter_input_subfield
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     fields[child.name] = self.create_filter_input_subfield(
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/django_graphene_filters/filter_arguments_factory.py", line 154, in create_filter_input_subfield
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     fields[child.name] = self.create_filter_input_subfield(
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/django_graphene_filters/filter_arguments_factory.py", line 145, in create_filter_input_subfield
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     all_filters = self.filterset_class.get_filters()
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/django_graphene_filters/filterset.py", line 449, in get_filters
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     expanded = cls.__class__.expand_related_filter(cls, name, f)
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/django_graphene_filters/filterset.py", line 253, in expand_related_filter
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     field_copy = copy.deepcopy(field)
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:                  ^^^^^^^^^^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/usr/lib/python3.12/copy.py", line 162, in deepcopy
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     y = _reconstruct(x, memo, *rv)
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/usr/lib/python3.12/copy.py", line 253, in _reconstruct
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     y = func(*args)
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:         ^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/usr/lib/python3.12/copy.py", line 252, in <genexpr>
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     args = (deepcopy(arg, memo) for arg in args)
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:             ^^^^^^^^^^^^^^^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/usr/lib/python3.12/copy.py", line 127, in deepcopy
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     d = id(x)
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:         ^^^^^
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:   File "/var/www/compare.django/.venv/lib/python3.12/site-packages/gunicorn/workers/base.py", line 198, in handle_abort
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]:     sys.exit(1)
+Mar 17 21:06:30 ubuntu-s-1vcpu-1gb-nyc1-01 gunicorn[6363]: SystemExit: 1
