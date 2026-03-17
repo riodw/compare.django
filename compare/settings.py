@@ -53,9 +53,14 @@ ALLOWED_HOSTS = [
     "127.0.0.1",
     *(([server_ip]) if server_ip else []),
 ]
+# Render
 RENDER_EXTERNAL_HOSTNAME = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
 if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+# Droplet
+DROPLET_HOST = os.environ.get("ALLOWED_HOST")
+if DROPLET_HOST:
+    ALLOWED_HOSTS.append(DROPLET_HOST)
 
 
 CORS_ORIGIN_ALLOW_ALL = False

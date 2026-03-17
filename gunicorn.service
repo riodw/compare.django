@@ -1,0 +1,14 @@
+[Unit]
+Description=gunicorn daemon for compare.django
+After=network.target
+
+[Service]
+User=medtrics
+Group=www-data
+WorkingDirectory=/var/www/compare.django
+Environment="PRODUCTION=true"
+Environment="ALLOWED_HOST=147.182.211.216"
+ExecStart=/var/www/compare.django/.venv/bin/gunicorn compare.wsgi:application --bind unix:/var/www/compare.django/gunicorn.sock --workers 3
+
+[Install]
+WantedBy=multi-user.target
