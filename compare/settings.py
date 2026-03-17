@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 
 import os
 from pathlib import Path
+import socket
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,12 +28,29 @@ SECRET_KEY = os.environ.get(
 )
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = "RENDER" not in os.environ
+DEBUG = not any(
+    [
+        os.environ.get("RENDER"),
+        os.environ.get("PRODUCTION"),
+        os.environ.get("DJANGO_ENV") == "production",
+    ]
+)
 # print("DEBUG:", DEBUG)
+
+
+def get_server_ip():
+    try:
+        return socket.gethostbyname(socket.gethostname())
+    except Exception:
+        return None
+
+
+server_ip = get_server_ip()
 
 ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
+    *(([server_ip]) if server_ip else []),
 ]
 RENDER_EXTERNAL_HOSTNAME = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
 if RENDER_EXTERNAL_HOSTNAME:
@@ -53,6 +71,7 @@ CORS_ALLOWED_ORIGIN_REGEXES = [
     r"^https://compare-django\.onrender\.com$",
     r"^http://compare-vue\.onrender\.com$",
     r"^https://compare-vue\.onrender\.com$",
+    *(([rf"^https?://{re.escape(server_ip)}$"]) if server_ip else []),
 ]
 
 
