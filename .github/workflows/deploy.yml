@@ -23,5 +23,5 @@ jobs:
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.GITHUBACTIONSDEPLOY147_182_211_216 }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: bash /var/www/compare.django/deploy.sh
