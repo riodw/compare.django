@@ -12,6 +12,7 @@ Should be "Python 3.14.2"
 Install packages
 
 ```
+uv lock --upgrade
 uv sync
 uv tree --outdated
 uv tree --outdated --depth=1

@@ -183,7 +183,7 @@ wheels = [
 
 [[package]]
 name = "django-graphene-filters"
-version = "0.3.0"
+version = "0.3.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "anytree" },
@@ -195,9 +195,9 @@ dependencies = [
     { name = "stringcase" },
     { name = "wrapt" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/98/35/40a0c380e078d398c526a6a1a0db4a1c9b1c92513083aa9833d4d02ee862/django_graphene_filters-0.3.0.tar.gz", hash = "sha256:9a44fedcb5e8572094a5ec21d8a474d56cebf83da710f8316e2e14f9aae3b025", size = 144505, upload-time = "2026-03-14T17:10:08.833Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/47/1f/f985a030fe5f68a9f8cffbf57c7b94f001b00e322465914901789ca97784/django_graphene_filters-0.3.1.tar.gz", hash = "sha256:d19ca8ce4bbbc2704d68d983417d3fc06be38c5de71cb52c04b85501a1464b78", size = 147053, upload-time = "2026-03-18T15:33:46.213Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/73/99/4f06165d1e069ddb544a80ac4f810c527f9b71d84802e8ca2232a41acb25/django_graphene_filters-0.3.0-py3-none-any.whl", hash = "sha256:a70b93ce3b6397b323a149b46d50fa3b897bd944aabf3700701053b599a73d95", size = 35495, upload-time = "2026-03-14T17:10:09.761Z" },
+    { url = "https://files.pythonhosted.org/packages/0c/39/db3c4ec8883527cb77e1d57081d47d7a258abcd56ff9de6c0ba9773d02eb/django_graphene_filters-0.3.1-py3-none-any.whl", hash = "sha256:3bd1c4123ce95647a98d5309e231f63b8a894445d2de37c405fb11777dac692b", size = 35940, upload-time = "2026-03-18T15:33:47.479Z" },
 ]
 
 [[package]]
@@ -478,15 +478,15 @@ wheels = [
 
 [[package]]
 name = "uvicorn"
-version = "0.41.0"
+version = "0.42.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "click" },
     { name = "h11" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/32/ce/eeb58ae4ac36fe09e3842eb02e0eb676bf2c53ae062b98f1b2531673efdd/uvicorn-0.41.0.tar.gz", hash = "sha256:09d11cf7008da33113824ee5a1c6422d89fbc2ff476540d69a34c87fab8b571a", size = 82633, upload-time = "2026-02-16T23:07:24.1Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/e3/ad/4a96c425be6fb67e0621e62d86c402b4a17ab2be7f7c055d9bd2f638b9e2/uvicorn-0.42.0.tar.gz", hash = "sha256:9b1f190ce15a2dd22e7758651d9b6d12df09a13d51ba5bf4fc33c383a48e1775", size = 85393, upload-time = "2026-03-16T06:19:50.077Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/83/e4/d04a086285c20886c0daad0e026f250869201013d18f81d9ff5eada73a88/uvicorn-0.41.0-py3-none-any.whl", hash = "sha256:29e35b1d2c36a04b9e180d4007ede3bcb32a85fbdfd6c6aeb3f26839de088187", size = 68783, upload-time = "2026-02-16T23:07:22.357Z" },
+    { url = "https://files.pythonhosted.org/packages/0a/89/f8827ccff89c1586027a105e5630ff6139a64da2515e24dafe860bd9ae4d/uvicorn-0.42.0-py3-none-any.whl", hash = "sha256:96c30f5c7abe6f74ae8900a70e92b85ad6613b745d4879eb9b16ccad15645359", size = 68830, upload-time = "2026-03-16T06:19:48.325Z" },
 ]
 
 [[package]]
