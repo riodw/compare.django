@@ -61,6 +61,7 @@ if RENDER_EXTERNAL_HOSTNAME:
 DROPLET_HOST = os.environ.get("ALLOWED_HOST")
 if DROPLET_HOST:
     ALLOWED_HOSTS.append(DROPLET_HOST)
+    ALLOWED_HOSTS.append(f"www.{DROPLET_HOST}")
 
 
 CORS_ORIGIN_ALLOW_ALL = False
@@ -78,6 +79,14 @@ CORS_ALLOWED_ORIGIN_REGEXES = [
     r"^http://compare-vue\.onrender\.com$",
     r"^https://compare-vue\.onrender\.com$",
     *(([rf"^https?://{re.escape(server_ip)}$"]) if server_ip else []),
+    *(
+        [
+            rf"^https?://{re.escape(DROPLET_HOST)}$",
+            rf"^https?://www\.{re.escape(DROPLET_HOST)}$",
+        ]
+        if DROPLET_HOST
+        else []
+    ),
 ]
 
 

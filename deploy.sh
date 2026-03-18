@@ -7,6 +7,8 @@ source .venv/bin/activate
 uv sync
 PRODUCTION=true python manage.py collectstatic --noinput
 sudo cp /var/www/compare.django/gunicorn.service /etc/systemd/system/gunicorn.service
+sudo cp /var/www/compare.django/nginx.conf /etc/nginx/sites-enabled/compare.django
 sudo systemctl daemon-reload
 sudo systemctl enable gunicorn
 sudo systemctl restart gunicorn
+sudo nginx -t && sudo systemctl reload nginx
