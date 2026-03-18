@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e
 cd /var/www/compare.django
+git reset --hard HEAD
 git pull origin master
 source .venv/bin/activate
 uv sync
