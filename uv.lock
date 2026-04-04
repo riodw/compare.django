@@ -183,7 +183,7 @@ wheels = [
 
 [[package]]
 name = "django-graphene-filters"
-version = "0.7.3"
+version = "0.7.4"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "anytree" },
@@ -195,9 +195,9 @@ dependencies = [
     { name = "stringcase" },
     { name = "wrapt" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/4f/a1/5bad8bb7c9cfccc796377cf5c99ea5e8b670f57f7fac3f5b34c1a35c45d8/django_graphene_filters-0.7.3.tar.gz", hash = "sha256:e0d7c4e83ac9d193ead9d64dd1a20dc930831c013c9d1a2f078534ab4541791b", size = 243343, upload-time = "2026-04-04T13:15:50.59Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/60/02/34a67f3e9f1e514884e3098e0519d807a94c0e30441b24d9f164f741f17f/django_graphene_filters-0.7.4.tar.gz", hash = "sha256:3e044504063e2a9e58a15f89e6cbde49c54621b244ca0aedadaf876a1a48ac53", size = 243825, upload-time = "2026-04-04T13:43:20.218Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/f3/49/37842ab39a8302048d517d00d10c62879ea481e863e4c635f5b613d817e2/django_graphene_filters-0.7.3-py3-none-any.whl", hash = "sha256:2abbb82f403a984b545d9d847c5c4d06cf8106eefee5d7a0ec68926d81e3b0a3", size = 57583, upload-time = "2026-04-04T13:15:49.205Z" },
+    { url = "https://files.pythonhosted.org/packages/f1/1e/043138cb3b9e7ee8fdc6456032459dca97340303f1b5189d7c5e5306aea5/django_graphene_filters-0.7.4-py3-none-any.whl", hash = "sha256:8111023d5c528c3f71058977076e66256880a2819f9e48289806baccf3cc9f8f", size = 57768, upload-time = "2026-04-04T13:43:18.744Z" },
 ]
 
 [[package]]
